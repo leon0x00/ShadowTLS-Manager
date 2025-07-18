@@ -298,7 +298,7 @@ get_latest_version() {
         tag_name=$(curl -s "https://api.github.com/repos/ihciah/shadow-tls/releases/latest" | grep -oP '"tag_name": "\K[^"]+')
     fi
     if [[ -z "$tag_name" || "$tag_name" == "null" ]]; then
-        print_error "无法获取最新版本，使用默认版本 v0.2.25"
+        # print_error "无法获取最新版本，使用默认版本 v0.2.25"
         echo "v0.2.25"
     else
         echo "$tag_name"
