@@ -582,7 +582,7 @@ download_ss_rust() {
 
     # 从版本号中去掉 'v' 前缀用于构建URL和文件名（根据官方命名规则）
     local version_str=${LATEST_RELEASE#v}
-    local DOWNLOAD_URL="https://github.com/shadowsocks/shadowsocks-rust/releases/download/${LATEST_RELEASE}/shadowsocks-${version_str}.${ARCH_STR}.tar.xz"
+    local DOWNLOAD_URL="https://github.com/shadowsocks/shadowsocks-rust/releases/download/${LATEST_RELEASE}/shadowsocks-v${version_str}.${ARCH_STR}.tar.xz"
     local TMP_FILE="/tmp/ss-rust.tar.xz"
 
     print_info "下载链接: $DOWNLOAD_URL"
