@@ -564,7 +564,7 @@ get_ss_rust_latest_version() {
     local tag_name
     tag_name=$(curl -s "https://api.github.com/repos/shadowsocks/shadowsocks-rust/releases/latest" | jq -r '.tag_name')
     if [[ -z "$tag_name" || "$tag_name" == "null" ]]; then
-        print_warning "无法获取最新版本号，将使用预设的回退版本 v1.23.5"
+        # print_warning "无法获取最新版本号，将使用预设的回退版本 v1.23.5"
         echo "v1.23.5"
     else
         echo "$tag_name"
@@ -582,7 +582,7 @@ download_ss_rust() {
 
     # 从版本号中去掉 'v' 前缀用于构建URL和文件名（根据官方命名规则）
     local version_str=${LATEST_RELEASE#v}
-    local DOWNLOAD_URL="https://github.com/shadowsocks/shadowsocks-rust/releases/download/${LATEST_RELEASE}/shadowsocks-v${version_str}.${ARCH_STR}.tar.xz"
+    local DOWNLOAD_URL="https://github.com/shadowsocks/shadowsocks-rust/releases/download/${LATEST_RELEASE}/shadowsocks-${version_str}.${ARCH_STR}.tar.xz"
     local TMP_FILE="/tmp/ss-rust.tar.xz"
 
     print_info "下载链接: $DOWNLOAD_URL"
